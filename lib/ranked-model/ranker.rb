@@ -180,7 +180,6 @@ module RankedModel
       end
 
       def assure_unique_position
-        binding.pry
         if ( new_record? || rank_changed? )
           if (rank > RankedModel::MAX_RANK_VALUE) || rank_taken?
             rearrange_ranks
@@ -189,7 +188,6 @@ module RankedModel
       end
 
       def rearrange_ranks
-        binding.pry
         _scope = finder
         escaped_column = instance_class.connection.quote_column_name ranker.column
         # If there is room at the bottom of the list and we're added to the very top of the list...
