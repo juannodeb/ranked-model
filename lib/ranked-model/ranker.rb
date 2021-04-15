@@ -180,6 +180,7 @@ module RankedModel
       end
 
       def assure_unique_position
+        binding.pry
         if ( new_record? || rank_changed? )
           if (rank > RankedModel::MAX_RANK_VALUE) || rank_taken?
             rearrange_ranks
